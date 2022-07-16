@@ -1,11 +1,11 @@
 const path = require('path');
 
 module.exports = {
-    mode: 'none',
+    mode: 'production',
     entry: './src/index.js',
     output: {
-        path: path.resolve(__dirname, './dist'),
-        filename: 'bundle.js',
+        path: path.resolve(__dirname, '../dist'),
+        filename: 'bundle.[contenthash].js',
         clean: true
     }
 }
