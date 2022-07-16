@@ -7,7 +7,7 @@
   "author": "Kumar Gaurav",
   "license": "ISC",
   "scripts": {
-    "dev": "webpack --config webpack/dev.config.js",
+    "dev": "webpack --watch --config webpack/dev.config.js",
     "build": "webpack --config webpack/prod.config.js"
   },
   "repository": {
