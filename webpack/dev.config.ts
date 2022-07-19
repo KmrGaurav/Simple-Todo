@@ -1,5 +1,6 @@
 import path from "path";
 import { Configuration } from "webpack";
+import HtmlWebpackPlugin from "html-webpack-plugin";
 
 const config: Configuration = {
     mode: "development",
@@ -13,6 +14,12 @@ const config: Configuration = {
             },
         ],
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: "src/index.html",
+            inject: "body",
+        }),
+    ],
     output: {
         path: path.resolve(__dirname, "../dist"),
         filename: "bundle.js",
