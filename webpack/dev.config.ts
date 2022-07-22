@@ -1,6 +1,7 @@
 import path from 'path';
 import { Configuration, WebpackOptionsNormalized } from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const config: Configuration | WebpackOptionsNormalized = {
     mode: 'development',
@@ -16,6 +17,10 @@ const config: Configuration | WebpackOptionsNormalized = {
     module: {
         rules: [
             {
+                test: /\.scss$/,
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+            },
+            {
                 test: /\.ts$/,
                 exclude: /node_modules/,
                 use: 'ts-loader',
@@ -26,6 +31,9 @@ const config: Configuration | WebpackOptionsNormalized = {
         new HtmlWebpackPlugin({
             template: 'src/index.html',
             inject: 'body',
+        }),
+        new MiniCssExtractPlugin({
+            filename: 'style.css',
         }),
     ],
     output: {
