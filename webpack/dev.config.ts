@@ -16,6 +16,10 @@ const config: Configuration | WebpackOptionsNormalized = {
     module: {
         rules: [
             {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader'],
+            },
+            {
                 test: /\.ts$/,
                 exclude: /node_modules/,
                 use: 'ts-loader',
