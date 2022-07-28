@@ -34,7 +34,7 @@ const config: Configuration | WebpackOptionsNormalized = {
             {
                 test: /\.ts$/,
                 exclude: /node_modules/,
-                use: 'ts-loader',
+                use: ['babel-loader', 'ts-loader'],
             },
         ],
     },
